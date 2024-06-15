@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:09:18 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/15 16:16:58 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:25:29 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ static int	push_nodes(t_stack **dst, t_stack **src)
 	else
 		node_d0 = *dst;
 	node_s0->next = node_d0;
-	ft_printf("check seg\n");
 	if (node_s1 != NULL)
 		node_s1->prev = NULL;
 	if (node_d0 != NULL)
 		node_d0->prev = node_s0;
-	ft_printf("done seg\n");
 	*src = node_s1;
-	dst = &node_s0;
+	*dst = node_s0;
 	return (SUCCESS);
 }
 
