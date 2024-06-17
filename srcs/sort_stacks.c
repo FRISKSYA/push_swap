@@ -3,45 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfukuhar <kfukuhar@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:21:21 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/15 19:31:18 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:11:07 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	sort_stacks(t_stack **stack_a)
+static int	sort_three_nodes(t_stack **stack_a)
 {
-	t_stack	*stack_b;
+	long int	n_0;
+	long int	n_1;
+	long int	n_2;
 
-	stack_b = NULL;
-	if (stack_a == NULL)
+	n_0 = (*stack_a)->nbr;
+	n_1 = (*stack_a)->next->nbr;
+	n_2 = (*stack_a)->next->next->nbr;
+	if (n_0 < n_2 && n_1 > n_2)
+		return (rra(stack_a), sa(stack_a));
+	else if (n_0 < n_1 && n_0 > n_2)
+		return (rra(stack_a));
+	else if (n_0 > n_1 && n_0 < n_2)
+		return (sa(stack_a));
+	else if (n_0 > n_1 && n_1 > n_2)
+		return (sa(stack_a), rra(stack_a));
+	else if (n_0 > n_2 && n_2 > n_1)
+		return (ra(stack_a));
+	return (SUCCESS);
+}
+
+// TODO: just draft
+int	sort_stacks(t_stack **s_a)
+{
+	t_stack	*s_b;
+
+	s_b = NULL;
+	if (s_a == NULL)
 		return (ERROR);
-	// FIXME: debug sa only
-	pb(stack_a, &stack_b);
-	pb(stack_a, &stack_b);
-	pb(stack_a, &stack_b);
-	sa(stack_a);
-	sb(&stack_b);
-	rb(&stack_b);
-	pa(stack_a, &stack_b);
-	ra(stack_a);
-	rra(stack_a);
-	stack_b = ft_lsthead(stack_b);
-	ft_printf("---b: Print Nodes:\n");
-	if (stack_b != NULL)
+	if (ft_lstsize(*s_a) > 3)
+		prepare_stacks(s_a, &s_b);
+	else if (ft_lstsize(*s_a) <= 2)
 	{
-		while (stack_b->next)
-		{
-			ft_printf("%d index'nbr is %d.\n", stack_b->index, stack_b->nbr);
-			stack_b = stack_b->next;
-		}
-		ft_printf("End node: %d index'nbr is %d.\n", stack_b->index, stack_b->nbr);
-		ft_printf("---b:END \n");
+		if (ft_lstsize(*s_a) == 2 && (*s_a)->nbr > (*s_a)->next->nbr)
+			return (sa(s_a));
+		return (SUCCESS);
 	}
-	stack_b = ft_lsthead(stack_b);
-	ft_printf("free list b is %d : 0 is SUCCESS\n", ft_lstclear(&stack_b));
+	while (ft_lstsize(*s_a) > 3)
+		move_node_min_ops(s_a, &s_b);
+	sort_three_nodes(s_a);
+	push_at_correct_position(s_a, &s_b);
 	return (SUCCESS);
 }

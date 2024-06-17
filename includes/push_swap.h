@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:07:14 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/15 16:31:06 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:15:20 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ int					fill_stacks(t_stack **stack_a, int count_words,
 						char **str_arr);
 int					free_str_arr(char **str_arr);
 int					sort_stacks(t_stack **stack_a);
+bool				issort_asc(t_stack *lst);
+int					move_node_min_ops(t_stack **stack_a, t_stack **stack_b);
+int					prepare_stacks(t_stack **stack_a, t_stack **stack_b);
+int					push_at_correct_position(t_stack **stack_a,
+						t_stack **stack_b);
 
 // make_lst
 t_stack				*ft_lstnew(long int i);
