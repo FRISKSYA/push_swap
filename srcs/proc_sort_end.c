@@ -3,69 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   proc_sort_end.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfukuhar <kfukuhar@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:15 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/17 18:41:45 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:05:56 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static t_stack	*find_target_node(t_stack *cur_a, t_stack *s_a, long b_val)
+static void	rotate_stack_to_target(t_stack **stack_a, t_stack *target_node)
 {
-	t_stack	*tgt;
-	long	closest_larger_value;
+	size_t		size_a;
+	size_t		pos_tgt;
+	t_stack		*cur;
 
-	tgt = NULL;
-	closest_larger_value = LONG_MAX;
-	while (cur_a && (cur_a != s_a || !tgt))
+	if (target_node == NULL)
+		return ;
+	size_a = ft_lstsize(*stack_a);
+	pos_tgt = 0;
+	cur = *stack_a;
+	while (cur != target_node)
 	{
-		if (cur_a->nbr > b_val && cur_a->nbr < closest_larger_value)
-		{
-			closest_larger_value = cur_a->nbr;
-			tgt = cur_a;
-		}
-		cur_a = cur_a->next;
+		cur = cur->next;
+		pos_tgt++;
 	}
-	return (tgt);
-}
-
-static t_stack	*find_min_node(t_stack *cur_a, t_stack *s_a)
-{
-	t_stack	*tgt;
-	long	min_nbr;
-
-	tgt = NULL;
-	min_nbr = s_a->nbr;
-	cur_a = cur_a->next;
-	while (cur_a && cur_a != s_a)
+	if (pos_tgt <= size_a / 2)
 	{
-		if (cur_a->nbr < min_nbr)
-		{
-			min_nbr = cur_a->nbr;
-			tgt = cur_a;
-		}
-		cur_a = cur_a->next;
+		while (*stack_a != target_node)
+			ra(stack_a);
 	}
-	return (tgt);
-}
-
-static t_stack	*get_target_node(t_stack **s_a, t_stack **s_b)
-{
-	long int	b_nbr;
-	t_stack		*current_a;
-	t_stack		*tgt;
-
-	if (!s_a || !s_b || !*s_b)
-		return (NULL);
-	b_nbr = (*s_b)->nbr;
-	current_a = *s_a;
-	tgt = NULL;
-	tgt = find_target_node(current_a, *s_a, b_nbr);
-	if (!tgt)
-		tgt = find_min_node(current_a, *s_a);
-	return (tgt);
+	else
+	{
+		while (*stack_a != target_node)
+			rra(stack_a);
+	}
 }
 
 int	push_at_correct_position(t_stack **stack_a, t_stack **stack_b)
@@ -75,9 +47,8 @@ int	push_at_correct_position(t_stack **stack_a, t_stack **stack_b)
 	tgt_node = NULL;
 	while (ft_lstsize(*stack_b) > 0)
 	{
-		tgt_node = get_target_node(stack_a, stack_b);
-		while (tgt_node && tgt_node != *stack_a)
-			ra(stack_a);
+		tgt_node = get_target_node_a(stack_a, stack_b);
+		rotate_stack_to_target(stack_a, tgt_node);
 		pa(stack_a, stack_b);
 	}
 	if (issort_asc(ft_lsthead(*stack_a)) == true)

@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:21:21 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/17 16:11:07 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:32:16 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	sort_stacks(t_stack **s_a)
 	if (s_a == NULL)
 		return (ERROR);
 	if (ft_lstsize(*s_a) > 3)
+		// NOTE: s_b = 2 nodes
 		prepare_stacks(s_a, &s_b);
 	else if (ft_lstsize(*s_a) <= 2)
 	{
@@ -51,7 +52,10 @@ int	sort_stacks(t_stack **s_a)
 		return (SUCCESS);
 	}
 	while (ft_lstsize(*s_a) > 3)
+	{
+		// NOTE: s_aから最短手順でプッシュできるノードを探す
 		move_node_min_ops(s_a, &s_b);
+	}
 	sort_three_nodes(s_a);
 	push_at_correct_position(s_a, &s_b);
 	return (SUCCESS);

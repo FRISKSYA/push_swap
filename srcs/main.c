@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:06:27 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/16 19:16:58 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/17 19:21:10 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static int	print_error(void)
 	return (ERROR);
 }
 
-__attribute__((destructor)) static void	destructor(void)
-{
-	system("leaks -q push_swap");
-}
+//__attribute__((destructor)) static void	destructor(void)
+//{
+//	system("leaks -q push_swap");
+//}
 
 // TODO: fix before finish.
 int	main(int argc, char **argv)
@@ -36,19 +36,15 @@ int	main(int argc, char **argv)
 		return (0);
 	if (validate_args(argc, argv) == ERROR)
 		return (print_error());
-	ft_printf("Validate: SUCCESS\n");
 	stack_a = NULL;
 	if (fill_stacks(&stack_a, --argc, ++argv) == ERROR)
 		return (print_error());
 	sort_stacks(&stack_a);
-	ft_printf("Print Nodes:\n");
 	while (stack_a->next)
 	{
-		ft_printf("%d index'nbr is %d.\n", stack_a->index, stack_a->nbr);
 		stack_a = stack_a->next;
 	}
-	ft_printf("End node: %d index'nbr is %d.\n", stack_a->index, stack_a->nbr);
 	stack_a = ft_lsthead(stack_a);
-	ft_printf("free list a is %d : 0 is SUCCESS\n", ft_lstclear(&stack_a));
+	ft_lstclear(&stack_a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:07:14 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/17 16:15:20 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:43:00 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../utils/ft_printf/ft_printf.h"
 # include "../utils/libft/libft.h"
 # include <limits.h>
+# include <stdlib.h>
 # include <stdbool.h>
 # include <stddef.h>
 
@@ -58,6 +59,8 @@ int					move_node_min_ops(t_stack **stack_a, t_stack **stack_b);
 int					prepare_stacks(t_stack **stack_a, t_stack **stack_b);
 int					push_at_correct_position(t_stack **stack_a,
 						t_stack **stack_b);
+t_stack				*get_target_node_a(t_stack **s_a, t_stack **s_b);
+t_stack				*get_target_node_b(t_stack **s_a, t_stack **s_b);
 
 // make_lst
 t_stack				*ft_lstnew(long int i);
@@ -66,6 +69,6 @@ t_stack				*ft_lsthead(t_stack *lst);
 int					ft_lstadd_back(t_stack **lst, t_stack *new_node);
 int					ft_lstdelone(t_stack **lst);
 int					ft_lstclear(t_stack **lst);
-int					ft_lstsize(t_stack *lst);
+size_t				ft_lstsize(t_stack *lst);
 
 #endif

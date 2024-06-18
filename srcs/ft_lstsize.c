@@ -6,15 +6,15 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:38:46 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/13 14:37:54 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/17 19:53:28 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+size_t	ft_lstsize(t_stack *lst)
 {
-	int		len;
+	size_t		len;
 
 	if (lst == NULL)
 		return (0);
