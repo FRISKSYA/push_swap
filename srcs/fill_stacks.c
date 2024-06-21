@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:03:31 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 16:12:55 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:35:52 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static int	fill_stack_by_split(struct s_stack **stack_a, char **str_arr)
 		if (new_node == NULL)
 		{
 			free_str_arr(split_words);
+			ft_lstclear(stack_a);
 			return (ERROR);
 		}
 		ft_lstadd_back(stack_a, new_node);
-		free(split_words[i]);
 		i++;
 	}
-	free(split_words);
+	free_str_arr(split_words);
 	return (SUCCESS);
 }
 
@@ -50,7 +50,10 @@ static int	fill_stack(struct s_stack **stack_a, char **str_arr)
 	{
 		new_node = ft_lstnew(ft_atoi(str_arr[i]));
 		if (new_node == NULL)
+		{
+			ft_lstclear(stack_a);
 			return (ERROR);
+		}
 		ft_lstadd_back(stack_a, new_node);
 		i++;
 	}
