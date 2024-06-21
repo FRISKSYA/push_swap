@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:21:21 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/19 17:06:19 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/21 20:03:11 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static int	sort_three_nodes(t_stack **stack_a)
 	return (SUCCESS);
 }
 
-// TODO: just draft
 int	sort_stacks(t_stack **s_a)
 {
 	t_stack	*s_b;
