@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 16:10:09 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/18 16:43:21 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:06:20 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static t_stack	*find_max_node(t_stack *cur_b, t_stack *s_b)
 	t_stack	*tgt;
 	long	max_nbr;
 
-	tgt = NULL;
+	tgt = s_b;
 	max_nbr = s_b->nbr;
-	cur_b = cur_b->next;
+	cur_b = s_b->next;
 	while (cur_b && cur_b != s_b)
 	{
 		if (cur_b->nbr > max_nbr)
@@ -133,7 +133,10 @@ t_stack	*get_target_node_b(t_stack **s_a, t_stack **s_b)
 //
 //    t_stack *target_node_b = get_target_node_b(&stack_a, &stack_b);
 //    if (target_node_b) {
-//        printf("Target node for stack_b found with value: %ld\n", target_node_b->nbr);
+//        printf(
+//        "Target node for stack_b found with value: %ld\n", 
+//        target_node_b->nbr
+//        );
 //    } else {
 //        printf("Target node for stack_b not found\n");
 //    }

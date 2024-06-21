@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:15 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/18 16:05:56 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:01:26 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,31 @@ static void	rotate_stack_to_target(t_stack **stack_a, t_stack *target_node)
 	}
 }
 
-int	push_at_correct_position(t_stack **stack_a, t_stack **stack_b)
+void	push_at_correct_position(t_stack **s_a, t_stack **s_b)
 {
-	t_stack	*tgt_node;
+	t_stack		*tgt_node;
+	t_stack		*border;
+	long int	count_end_rotate;
 
 	tgt_node = NULL;
-	while (ft_lstsize(*stack_b) > 0)
+	while (ft_lstsize(*s_b) > 0)
 	{
-		tgt_node = get_target_node_a(stack_a, stack_b);
-		rotate_stack_to_target(stack_a, tgt_node);
-		pa(stack_a, stack_b);
+		tgt_node = get_target_node_a(s_a, s_b);
+		rotate_stack_to_target(s_a, tgt_node);
+		pa(s_a, s_b);
 	}
-	if (issort_asc(ft_lsthead(*stack_a)) == true)
-		return (SUCCESS);
-	while ((*stack_a)->nbr < (*stack_a)->next->nbr)
-		ra(stack_a);
-	return (ra(stack_a));
+	border = (ft_lsthead(*s_a))->next;
+	while (border && border->prev->nbr < border->nbr)
+		border = border->next;
+	count_end_rotate = get_cost_to_head(border);
+	if (count_end_rotate > 0)
+	{
+		while (count_end_rotate-- > 0)
+			ra(s_a);
+	}
+	else
+	{
+		while (count_end_rotate++ < 0)
+			rra(s_a);
+	}
 }

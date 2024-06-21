@@ -11,7 +11,10 @@ PRINTF_DIR = ./utils/ft_printf
 LIBFT_DIR = ./utils/libft
 
 # Source files
-SRCS = $(wildcard $(SRCS_DIR)/*.c)
+SRCS_FILES = fill_stacks.c free_str_arr.c ft_lstadd_back.c ft_lstclear.c ft_lstdelone.c ft_lsthead.c ft_lstlast.c ft_lstnew.c ft_lstsize.c\
+			 get_cost_to_head.c get_target_node_a.c get_target_node_b.c move_node_min_ops.c proc_sort_begin.c proc_sort_end.c\
+			 push_nodes.c push_swap.c reverse_rotate_stacks.c rotate_stacks.c sort_stacks.c swap_nodes.c validate_args.c
+SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
 # Object files
 OBJS = $(SRCS:.c=.o)
