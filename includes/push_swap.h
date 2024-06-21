@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:07:14 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 18:40:10 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:52:50 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void				push_at_correct_position(t_stack **stack_a,
 t_stack				*get_target_node_a(t_stack **s_a, t_stack **s_b);
 t_stack				*get_target_node_b(t_stack **s_a, t_stack **s_b);
 long int			get_cost_to_head(t_stack *lst_node);
-bool				issort_asc(t_stack *lst)
+bool				issort_asc(t_stack *lst);
 
 // make_lst
 t_stack				*ft_lstnew(long int i);
