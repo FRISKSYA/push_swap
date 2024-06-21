@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:06:27 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 18:58:25 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/21 19:05:22 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	if (fill_stacks(&stack_a, --argc, ++argv) == ERROR)
 		return (print_error());
-	if (issort_asc(stack_a) == true)
+	if (issort_asc(stack_a))
 	{
 		ft_lstclear(&stack_a);
 		return (SUCCESS);
