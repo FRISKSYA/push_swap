@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:36:09 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/16 18:54:13 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 21:51:49 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_lstadd_back(t_stack **lst, t_stack *new_node)
 		last = ft_lstlast(*lst);
 		last->next = new_node;
 		new_node->prev = last;
-		new_node->index = last->index + 1;
 		return (SUCCESS);
 	}
 }

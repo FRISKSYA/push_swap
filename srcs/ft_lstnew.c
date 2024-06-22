@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:09:24 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/12 19:16:00 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 21:52:12 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_stack	*ft_lstnew(long int i)
 	if (node == NULL)
 		return (NULL);
 	node->nbr = i;
-	node->index = 0;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);

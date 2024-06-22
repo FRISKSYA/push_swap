@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:07:14 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 18:52:50 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 21:54:15 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef enum s_error
 typedef struct s_stack
 {
 	long int		nbr;
-	size_t			index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
