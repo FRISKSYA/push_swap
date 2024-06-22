@@ -6,17 +6,17 @@
 /*   By: kfukuhar <kfukuhar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:35:45 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 13:55:33 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 21:56:30 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long int	get_cost_to_head(t_stack *lst_node)
+int	get_cost_to_head(t_stack *lst_node)
 {
 	t_stack		*head;
 	t_stack		*current;
-	long int	cost;
+	int	cost;
 	size_t		size_lst;
 
 	head = ft_lsthead(lst_node);
@@ -28,8 +28,8 @@ long int	get_cost_to_head(t_stack *lst_node)
 		cost++;
 		current = current->next;
 	}
-	if (cost > (long int)(size_lst / 2))
-		return (cost - (long int)size_lst);
+	if (cost > (int)(size_lst / 2))
+		return (cost - (int)size_lst);
 	else
 		return (cost);
 }

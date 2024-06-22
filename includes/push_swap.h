@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:07:14 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/22 21:54:15 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 21:56:39 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef enum s_error
 
 typedef struct s_stack
 {
-	long int		nbr;
+	int		nbr;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
@@ -59,11 +59,11 @@ void				push_at_correct_position(t_stack **stack_a,
 						t_stack **stack_b);
 t_stack				*get_target_node_a(t_stack **s_a, t_stack **s_b);
 t_stack				*get_target_node_b(t_stack **s_a, t_stack **s_b);
-long int			get_cost_to_head(t_stack *lst_node);
+int			get_cost_to_head(t_stack *lst_node);
 bool				issort_asc(t_stack *lst);
 
 // make_lst
-t_stack				*ft_lstnew(long int i);
+t_stack				*ft_lstnew(int i);
 t_stack				*ft_lstlast(t_stack *lst);
 t_stack				*ft_lsthead(t_stack *lst);
 int					ft_lstadd_back(t_stack **lst, t_stack *new_node);

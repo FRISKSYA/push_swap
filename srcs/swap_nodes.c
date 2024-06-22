@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:46:41 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/15 15:04:30 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 22:00:24 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ss(t_stack **a, t_stack **b)
 //#include <stdio.h>
 //#include <stdlib.h>
 //
-//t_stack *create_node(long int nbr, size_t index) {
+//t_stack *create_node(int nbr, size_t index) {
 //    t_stack *new_node = (t_stack *)malloc(sizeof(t_stack));
 //    if (new_node == NULL) {
 //        perror("Failed to allocate memory");

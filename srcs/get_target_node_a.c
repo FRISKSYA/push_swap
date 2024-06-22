@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:00:03 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 13:05:45 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 21:59:07 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ static t_stack	*find_min_node(t_stack *cur_a, t_stack *s_a)
 
 t_stack	*get_target_node_a(t_stack **s_a, t_stack **s_b)
 {
-	long int	b_nbr;
-	t_stack		*current_a;
-	t_stack		*tgt;
+	int		b_nbr;
+	t_stack	*current_a;
+	t_stack	*tgt;
 
 	if (!s_a || !s_b || !*s_b)
 		return (NULL);

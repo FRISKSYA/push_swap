@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:15 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 16:01:26 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 21:59:49 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	push_at_correct_position(t_stack **s_a, t_stack **s_b)
 {
 	t_stack		*tgt_node;
 	t_stack		*border;
-	long int	count_end_rotate;
+	int			count_end_rotate;
 
 	tgt_node = NULL;
 	while (ft_lstsize(*s_b) > 0)

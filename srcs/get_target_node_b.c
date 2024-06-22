@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_target_node_b.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfukuhar <kfukuhar@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 16:10:09 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 13:06:20 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 21:59:21 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static t_stack	*find_max_node(t_stack *cur_b, t_stack *s_b)
 
 t_stack	*get_target_node_b(t_stack **s_a, t_stack **s_b)
 {
-	long int	a_nbr;
+	int			a_nbr;
 	t_stack		*current_b;
 	t_stack		*tgt;
 
@@ -134,7 +134,7 @@ t_stack	*get_target_node_b(t_stack **s_a, t_stack **s_b)
 //    t_stack *target_node_b = get_target_node_b(&stack_a, &stack_b);
 //    if (target_node_b) {
 //        printf(
-//        "Target node for stack_b found with value: %ld\n", 
+//        "Target node for stack_b found with value: %ld\n",
 //        target_node_b->nbr
 //        );
 //    } else {

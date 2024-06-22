@@ -6,7 +6,7 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:21:21 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 20:03:11 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 22:00:17 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	sort_three_nodes(t_stack **stack_a)
 {
-	long int	n_0;
-	long int	n_1;
-	long int	n_2;
+	int	n_0;
+	int	n_1;
+	int	n_2;
 
 	n_0 = (*stack_a)->nbr;
 	n_1 = (*stack_a)->next->nbr;

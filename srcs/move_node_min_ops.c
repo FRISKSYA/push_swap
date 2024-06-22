@@ -6,13 +6,13 @@
 /*   By: kfukuhar <kfukuhar@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:01:04 by kfukuhar          #+#    #+#             */
-/*   Updated: 2024/06/21 15:28:22 by kfukuhar         ###   ########.fr       */
+/*   Updated: 2024/06/22 22:02:53 by kfukuhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static long int	ft_abs(long int x)
+static int	ft_abs(int x)
 {
 	if (x > 0)
 		return (-x);
@@ -20,11 +20,10 @@ static long int	ft_abs(long int x)
 		return (x);
 }
 
-static void	replace_lowercost(long int *c_a, long int *c_b, long int tmp_a,
-		long int tmp_b)
+static void	replace_lowercost(int *c_a, int *c_b, int tmp_a, int tmp_b)
 {
-	long int	min_c;
-	long int	min_tmp;
+	int	min_c;
+	int	min_tmp;
 
 	if (ft_abs(*c_a) <= ft_abs(*c_b))
 		min_c = ft_abs(*c_a);
@@ -42,8 +41,7 @@ static void	replace_lowercost(long int *c_a, long int *c_b, long int tmp_a,
 	return ;
 }
 
-static void	rotate_double(t_stack **s_a, t_stack **s_b, long int *c_a,
-		long int *c_b)
+static void	rotate_double(t_stack **s_a, t_stack **s_b, int *c_a, int *c_b)
 {
 	while (*c_a > 0 && *c_b > 0)
 	{
@@ -59,8 +57,7 @@ static void	rotate_double(t_stack **s_a, t_stack **s_b, long int *c_a,
 	}
 }
 
-static void	rotate_single(t_stack **s_a, t_stack **s_b, long int *c_a,
-		long int *c_b)
+static void	rotate_single(t_stack **s_a, t_stack **s_b, int *c_a, int *c_b)
 {
 	if (*c_a > 0)
 	{
@@ -86,13 +83,13 @@ static void	rotate_single(t_stack **s_a, t_stack **s_b, long int *c_a,
 
 int	move_node_min_ops(t_stack **s_a, t_stack **s_b)
 {
-	long int	cost_a;
-	long int	cost_b;
-	t_stack		*current_a;
-	t_stack		*tgt_b;
+	int		cost_a;
+	int		cost_b;
+	t_stack	*current_a;
+	t_stack	*tgt_b;
 
-	cost_a = LONG_MAX;
-	cost_b = LONG_MAX;
+	cost_a = INT_MAX;
+	cost_b = INT_MAX;
 	current_a = *s_a;
 	tgt_b = NULL;
 	while (current_a)
