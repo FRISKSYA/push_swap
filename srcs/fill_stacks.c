@@ -62,11 +62,6 @@ static int	fill_stack(struct s_stack **stack_a, char **str_arr)
 
 int	fill_stacks(struct s_stack **stack_a, int count_words, char **str_arr)
 {
-	size_t			i;
-	struct s_stack	*new_node;
-
-	i = 0;
-	new_node = NULL;
 	if (count_words == 1)
 		return (fill_stack_by_split(stack_a, str_arr));
 	else

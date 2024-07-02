@@ -29,7 +29,7 @@ typedef enum s_error
 
 typedef struct s_stack
 {
-	int		nbr;
+	int				nbr;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
@@ -59,7 +59,7 @@ void				push_at_correct_position(t_stack **stack_a,
 						t_stack **stack_b);
 t_stack				*get_target_node_a(t_stack **s_a, t_stack **s_b);
 t_stack				*get_target_node_b(t_stack **s_a, t_stack **s_b);
-int			get_cost_to_head(t_stack *lst_node);
+int					get_cost_to_head(t_stack *lst_node);
 bool				issort_asc(t_stack *lst);
 
 // make_lst

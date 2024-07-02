@@ -16,7 +16,7 @@ int	get_cost_to_head(t_stack *lst_node)
 {
 	t_stack		*head;
 	t_stack		*current;
-	int	cost;
+	int			cost;
 	size_t		size_lst;
 
 	head = ft_lsthead(lst_node);
